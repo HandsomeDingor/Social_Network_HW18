@@ -1,23 +1,23 @@
 const router = require('express').Router();
 const {
-  getAllThougth,
-  getThougthById,
-  createThougth,
-  updateThougth,
-  deleteThougth
-} = require('../../controllers/thougth-controller');
+  getAllThought,
+  getThoughtById,
+  createThought,
+  updateThought,
+  deleteThought,
+} = require('../../controllers/thought-controller');
 
 // /api/thougth
 router
   .route('/')
-  .get(getAllThougth)
-  .post(createThougth);
+  .get(getAllThought)
+  .post(createThought);
 
 // /api/thougth/:id
 router
   .route('/:id')
-  .get(getThougthById)
-  .put(updateThougth)
-  .delete(deleteThougth);
+  .get(getThoughtById)
+  .put(updateThought)
+  .delete(deleteThought);
 
 module.exports = router;

@@ -1,8 +1,8 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
-const reactionSchema = require('./Reaction');
+const ReactionSchema = require('./Reaction');
 
-const thoughtSchema = new Schema(
+const ThoughtSchema = new Schema(
     {
         thoughtText: {
             type: String,
@@ -22,7 +22,7 @@ const thoughtSchema = new Schema(
             required: 'Username is Required'
         },
 
-        reactions: [ reactionSchema ]
+        reactions: [ ReactionSchema ]
 
     },
     {
@@ -34,11 +34,11 @@ const thoughtSchema = new Schema(
     }
 );
 
-UserSchema.virtual('friendCount').get(function () {
+ThoughtSchema.virtual('friendCount').get(function () {
     return this.friends.length;
 });
 
 
-const Thought = model('Thought', thoughtSchema);
+const Thought = model('Thought', ThoughtSchema);
 
 module.exports = Thought;
